@@ -28,10 +28,26 @@ int main()
 	{
 		//Основний принцип гри
 	case 1 :
+		cout << "--------------------Гра--------------------\n" << endl;
 		//Заповнюємо змінну числом яким ми хочему загадати
 		cout << "Введiть число суми костей якi ви хочете загадати: ";
 		int number_sum_kost;
 		cin >> number_sum_kost;
+
+		cout << endl;
+
+		//Заповнюємо сумму ставки, яку ви хочете ввести
+		cout << "Введiть сумму ставки яку ви хочете поставити: ";
+		int vibor_stavka;
+		cin >> vibor_stavka;
+
+		//Якщо сумма ставки привишує 100, тоді видає помилку
+		if (vibor_stavka > 100 && vibor_stavka < 0)
+		{
+			cerr << "Ви не можете вибрати ставку більше 100 на початку гри";
+			return 3;
+
+		}
 
 		cout << endl;
 
@@ -59,33 +75,81 @@ int main()
 		cout << endl;
 
 		//Якщо сума яку загадав користувач менше 7 та кубики випали менше 7, тоді виводе текст що виграв
-		if (number_sum_kost < 7 &&  number_sum_kost == 7)
+		if (number_sum_kost < 7)
 		{
-			if (number_sum_kost < sum_kost_console)
+			if(sum_kost_console < 7)
 			{
-				cout << "Ви вийграли ставку!" << endl;;
+				cout << "Ви вийграли ставку!" << endl;
+				cout << endl;
+				int stavka;
+				stavka = vibor_stavka * 2;
+				cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
+				cout << endl;
+				cout << "-------------------------------------------\n" << endl;
+				break;
 			}
 		}
+
+		
 
 		//Якщо сума яку загадав користувач та вона рівно та сама що й випали кубики, тоді гравець отримує в четверо більше очок
 		if (number_sum_kost == sum_kost_console)
 		{
-			cout << "Ви виграли ставу та виграєте ствку в четверо бiльше!" << endl;;
+			cout << "Ви виграли ставу та виграєте ствку в четверо бiльше!" << endl;
+			cout << endl;
+			int stavka;
+			stavka = vibor_stavka * 4;
+			cout << "Ваша ставка збiльшилася в четверо, ваша ставка становить = " << stavka << endl;
+			cout << endl;
+			cout << "-------------------------------------------\n" << endl;;
+			break;
 		}
 
 		//Якщо сума яку загадав користувач більше 7 та кубики випали більше 7, тоді виводе текст що виграв
-		if (number_sum_kost > 7 && number_sum_kost == 8)
+		if (number_sum_kost > 8)
 		{
-			if (number_sum_kost > sum_kost_console)
+			if (sum_kost_console > 8)
 			{
-				cout << "Ви вийграли ставку!" << endl;;
+				cout << "Ви вийграли ставку!" << endl;
+				cout << endl;
+				int stavka;
+				stavka = vibor_stavka * 2;
+				cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
+				cout << endl;
+				cout << "-------------------------------------------\n" << endl;;
+				break;
+			}
+		}
+
+		if (number_sum_kost > 8)
+		{
+			if (sum_kost_console > 8 && sum_kost_console == 8)
+			{
+				if (sum_kost_console < number_sum_kost)
+				{
+					cout << "Ви вийграли ставку!" << endl;
+					cout << endl;
+					int stavka;
+					stavka = vibor_stavka * 2;
+					cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
+					cout << endl;
+					cout << "-------------------------------------------\n" << endl;
+					break;
+				}
 			}
 		}
 
 		//Якщо не із жодних ситуацій не співпадає
 		else
 		{
-			cout << "Ви програли" << endl;;
+			cout << "Ви програли" << endl;
+			cout << endl;
+			int stavka;
+			stavka = vibor_stavka * 0;
+			cout << "Ваша ставка програна, ставка ануляцiя повнiстю = " << stavka << endl;
+			cout << endl;
+			cout << "-------------------------------------------\n" << endl;;
+			break;
 		}
 
 		break;
