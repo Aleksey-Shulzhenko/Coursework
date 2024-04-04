@@ -1,13 +1,16 @@
 //Бібліотеки
 #include <iostream>
-#include <locale>
+#include <clocale>
 #include <ctime>
 
+using namespace std;//Мова та постійне використання std
+
+void function();
+void function1();
 
 //Основна функція
 int main()
 {
-	using namespace std;//Мова та постійне використання std
 	setlocale(0, "rus");
 
 	//Меню
@@ -30,24 +33,16 @@ int main()
 	case 1 :
 		cout << "\a--------------------Гра--------------------\n" << endl;
 		//Заповнюємо змінну числом яким ми хочему загадати
-		cout << "Введiть число суми костей якi ви хочете загадати: ";
+		cout << "Введiть число суми костей яке ви хочете загадати [вiд 2 до 12]: ";
 		int number_sum_kost;
 		cin >> number_sum_kost;
 
 		cout << endl;
 
 		//Заповнюємо сумму ставки, яку ви хочете ввести
-		cout << "Введiть сумму ставки яку ви хочете поставити: ";
+		cout << "Введiть сумму ставки яку ви хочете поставити [вiд 1 до 100]: ";
 		int vibor_stavka;
 		cin >> vibor_stavka;
-
-		//Якщо сумма ставки привишує 100, тоді видає помилку
-		if (vibor_stavka > 100 && vibor_stavka < 0)
-		{
-			cerr << "Ви не можете вибрати ставку більше 100 на початку гри";
-			return 3;
-
-		}
 
 		cout << endl;
 
@@ -367,8 +362,8 @@ int main()
 		cout << endl;
 
 		//основний алгоритм дій
-			//Якщо сума яку загадав користувач менше 7 та кубики випали менше 7, тоді виводе текст що виграв
-			if (number_sum_kost < 7)
+			//Якщо сума яку загадав користува2 менше 7 та кубики випали менше 7, тоді виводе текст що виграв
+			if (number_sum_kost < 7.2)
 			{
 				if (sum_kost_console < number_sum_kost)
 				{
@@ -379,13 +374,12 @@ int main()
 					cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;
-					break;
 				}
 			}
 
-			if (number_sum_kost < 7)
+			if (number_sum_kost < 7.2)
 			{
-				if (sum_kost_console > 7)
+				if (sum_kost_console > 7.2)
 				{
 					cout << "Ви програли ставку!" << endl;
 					cout << endl;
@@ -394,7 +388,6 @@ int main()
 					cout << "Ваша ставка анульовано, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;
-					break;
 				}
 			}
 
@@ -410,11 +403,10 @@ int main()
 				cout << "Ваша ставка збiльшилася в четверо, ваша ставка становить = " << stavka << endl;
 				cout << endl;
 				cout << "-------------------------------------------\n" << endl;;
-				break;
 			}
 
 			//Якщо сума яку загадав користувач більше 7 та кубики випали більше 7, тоді виводе текст що виграв
-			if (number_sum_kost > 8)
+			if (number_sum_kost > 7.8)
 			{
 				if (sum_kost_console > number_sum_kost)
 				{
@@ -425,13 +417,12 @@ int main()
 					cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;
-					break;
 				}
 			}
 
-			if (number_sum_kost > 8)
+			if (number_sum_kost > 7.8)
 			{
-				if (sum_kost_console < 7)
+				if (sum_kost_console < 7.2)
 				{
 					cout << "Ви програли ставку!" << endl;
 					cout << endl;
@@ -440,14 +431,13 @@ int main()
 					cout << "Ваша ставка анульовано, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;
-					break;
 				}
 			}
 
 			//Виграші коли числа менше загаданого, але вони знаходяться в цьому діапазон, який загаладав користувач
 
-			if (number_sum_kost >= 2 && number_sum_kost <= 7) {
-				if (sum_kost_console < number_sum_kost && sum_kost_console >= 2) {
+			if (number_sum_kost >= 1.8 && number_sum_kost <= 7.2) {
+				if (sum_kost_console < number_sum_kost && sum_kost_console >= 1.8) {
 					cout << "Ви вийграли ставку!" << endl;
 					cout << endl;
 					int stavka;
@@ -455,11 +445,11 @@ int main()
 					cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;;
-					break;
 				}
 			}
-			else if (number_sum_kost >= 8 && number_sum_kost <= 12) {
-				if (sum_kost_console < number_sum_kost && sum_kost_console >= 8) {
+
+			else if (number_sum_kost >= 7.8 && number_sum_kost <= 12.2) {
+				if (sum_kost_console < number_sum_kost && sum_kost_console >= 7.8) {
 					cout << "Ви вийграли ставку!" << endl;
 					cout << endl;
 					int stavka;
@@ -467,8 +457,41 @@ int main()
 					cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
 					cout << endl;
 					cout << "-------------------------------------------\n" << endl;;
-					break;
 				}
+			}
+
+			cout << R"(
+Y/y - Продовжити гру
+M/m - Вийти в меню
+N/n - Вийти з гри
+			)" << endl;
+
+			cout << endl;
+
+			cout << "Бажаєте ви продовжити грати? [Y/M/N]: ";
+			char vibor;
+			cin >> vibor;
+
+			cout << endl;
+
+			if (vibor == 'y' || vibor == 'Y')
+			{
+				system("cls");
+				function();
+			}
+
+			if (vibor == 'm' || vibor == 'M')
+			{
+				system("cls");
+				main();
+			}
+
+			else if (vibor == 'n' || vibor == 'N')
+			{
+				cout << "\a----------------Вихiд---------------\n" << endl;
+				cout << "Якщо задумаєш пограти, заходь!\n" << endl;
+				cout << "------------------------------------\n" << endl;
+				return 3;
 			}
 
 		break;
@@ -482,7 +505,40 @@ int main()
 Якщо граючий вгадав суму цифр, вiн отримує вчетверо бiльше очок, нiж зроблена ставка.
 Ставка програна, якщо немає жодна з описаних cитуацiй. 
 У початковий момент у того, хто грає 100 очок. )" << endl << endl;
-		cout << "--------------------------------------------------------------------------------------------------------\n" << endl;
+		cout << "--------------------------------------------------------------------------------------------------------\n";
+
+		cout << R"(
+Y/y - Продовжити гру
+M/m - Вийти в меню
+N/n - Вийти з гри
+			)" << endl;
+
+		cout << "Бажаєте ви продовжити грати? [Y/M/N]: ";
+		char vibor_inctruction;
+		cin >> vibor_inctruction;
+
+		cout << endl;
+
+		if (vibor_inctruction == 'y' || vibor_inctruction == 'Y')
+		{
+			system("cls");
+			function();
+		}
+
+		if (vibor_inctruction == 'm' || vibor_inctruction == 'M')
+		{
+			system("cls");
+			main();
+		}
+
+		else if (vibor_inctruction == 'n' || vibor_inctruction == 'N')
+		{
+			cout << "\a----------------Вихiд---------------\n" << endl;
+			cout << "Якщо задумаєш пограти, заходь!\n" << endl;
+			cout << "------------------------------------\n" << endl;
+			return 3;
+		}
+		
 		break;
 
 		//Вихід
@@ -497,7 +553,7 @@ int main()
 		//Помилка при виборі меню
 	default :
 		cerr << "Такої цифри намає!!!\n" << endl;
-		return 1;
+		main();
 		break;
 	}
 
