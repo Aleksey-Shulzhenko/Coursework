@@ -462,11 +462,11 @@ void function()
 	cout << endl;
 
 	//основний алгоритм дій
-	// 
+
 		//Якщо сума яку загадав користува2 менше 7 та кубики випали менше 7, тоді виводе текст що виграв
 	if (number_sum_kost < 7.2)
 	{
-		if (sum_kost_console < number_sum_kost)
+		if (sum_kost_console < 7.2)
 		{
 			cout << "Ви вийграли ставку!" << endl;
 			cout << endl;
@@ -480,7 +480,7 @@ void function()
 
 	if (number_sum_kost < 7.2)
 	{
-		if (sum_kost_console > 7.2)
+		if (sum_kost_console > 7.8)
 		{
 			cout << "Ви програли ставку!" << endl;
 			cout << endl;
@@ -492,8 +492,6 @@ void function()
 		}
 	}
 
-
-
 	//Якщо сума яку загадав користувач та вона рівно та сама що й випали кубики, тоді гравець отримує в четверо більше очок
 	if (number_sum_kost == sum_kost_console)
 	{
@@ -503,13 +501,13 @@ void function()
 		stavka = vibor_stavka * 4;
 		cout << "Ваша ставка збiльшилася в четверо, ваша ставка становить = " << stavka << endl;
 		cout << endl;
-		cout << "-------------------------------------------\n" << endl;;
+		cout << "-------------------------------------------\n" << endl;
 	}
 
 	//Якщо сума яку загадав користувач більше 7 та кубики випали більше 7, тоді виводе текст що виграв
 	if (number_sum_kost > 7.8)
 	{
-		if (sum_kost_console > number_sum_kost)
+		if (sum_kost_console > 7.8)
 		{
 			cout << "Ви вийграли ставку!" << endl;
 			cout << endl;
@@ -535,76 +533,46 @@ void function()
 		}
 	}
 
-	//Виграші коли числа менше загаданого, але вони знаходяться в цьому діапазон, який загаладав користувач
-
-	if (number_sum_kost >= 1.8 && number_sum_kost <= 7.2)
-	{
-		if (sum_kost_console < number_sum_kost && sum_kost_console >= 1.8) 
-		{
-			cout << "Ви вийграли ставку!" << endl;
-			cout << endl;
-			int stavka;
-			stavka = vibor_stavka * 2;
-			cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
-			cout << endl;
-			cout << "-------------------------------------------\n" << endl;
-		}
-	}
-
-	else if (number_sum_kost >= 7.8 && number_sum_kost <= 12.2)
-	{
-		if (sum_kost_console < number_sum_kost && sum_kost_console >= 7.8) 
-		{
-			cout << "Ви вийграли ставку!" << endl;
-			cout << endl;
-			int stavka;
-			stavka = vibor_stavka * 2;
-			cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
-			cout << endl;
-			cout << "-------------------------------------------\n" << endl;
-		}
-	}
-
-	//Коротке меню подальших дій
-	cout << R"(
+		//Коротке меню подальших дій
+		cout << R"(
 Y/y - Продовжити гру
 M/m - Вийти в меню
 N/n - Вийти з гри
 			)" << endl;
 
-	cout << endl;
-	//меню
-	cout << "Бажаєте ви продовжити грати? [Y/M/N]: ";
-	char vibor;
-	cin >> vibor;
+		cout << endl;
+		//меню
+		cout << "Бажаєте ви продовжити грати? [Y/M/N]: ";
+		char vibor;
+		cin >> vibor;
 
-	cout << endl;
-	//Продовжити цикл гри
-	if (vibor == 'y' || vibor == 'Y')
-	{
-		cout << "Гра розпочнеться через..." << endl << endl;
-		for (int i = 0; i < 3; i++)
+		cout << endl;
+		//Продовжити цикл гри
+		if (vibor == 'y' || vibor == 'Y')
 		{
-			Sleep(1000);
-			cout << i + 1 << endl << endl;
-			Sleep(1000);
+			cout << "Гра розпочнеться через..." << endl << endl;
+			for (int i = 0; i < 3; i++)
+			{
+				Sleep(1000);
+				cout << i + 1 << endl << endl;
+				Sleep(1000);
+			}
+			system("cls");
+			function();
 		}
-		system("cls");
-		function();
+		//Вийти в меню
+		if (vibor == 'm' || vibor == 'M')
+		{
+			system("cls");
+			main();
+		}
+		//Завершити остаточно программу
+		else if (vibor == 'n' || vibor == 'N')
+		{
+			cout << "\a----------------Вихiд---------------\n" << endl;
+			cout << "Якщо задумаєш пограти, заходь!\n" << endl;
+			cout << "------------------------------------\n" << endl;
+			result();
+			system("PAUSE");
+		}
 	}
-	//Вийти в меню
-	if (vibor == 'm' || vibor == 'M')
-	{
-		system("cls");
-		main();
-	}
-	//Завершити остаточно программу
-	else if (vibor == 'n' || vibor == 'N')
-	{
-		cout << "\a----------------Вихiд---------------\n" << endl;
-		cout << "Якщо задумаєш пограти, заходь!\n" << endl;
-		cout << "------------------------------------\n" << endl;
-		result();
-		system("PAUSE");
-	}
-}
