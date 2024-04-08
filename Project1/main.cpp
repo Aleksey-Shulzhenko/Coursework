@@ -466,7 +466,7 @@ void function()
 		//Якщо сума яку загадав користува2 менше 7 та кубики випали менше 7, тоді виводе текст що виграв
 	if (number_sum_kost < 7.2)
 	{
-		if (sum_kost_console < 7.2)
+		if (sum_kost_console < number_sum_kost)
 		{
 			cout << "Ви вийграли ставку!" << endl;
 			cout << endl;
@@ -475,6 +475,23 @@ void function()
 			cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
 			cout << endl;
 			cout << "-------------------------------------------\n" << endl;
+		}
+	}
+
+	if (number_sum_kost < 7.2)
+	{
+		if (sum_kost_console < 7.2)
+		{
+			if (sum_kost_console > number_sum_kost)
+			{
+				cout << "Ви вийграли ставку!" << endl;
+				cout << endl;
+				int stavka;
+				stavka = vibor_stavka * 2;
+				cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
+				cout << endl;
+				cout << "-------------------------------------------\n" << endl;
+			}
 		}
 	}
 
@@ -504,10 +521,28 @@ void function()
 		cout << "-------------------------------------------\n" << endl;
 	}
 
-	//Якщо сума яку загадав користувач більше 7 та кубики випали більше 7, тоді виводе текст що виграв
+
 	if (number_sum_kost > 7.8)
 	{
 		if (sum_kost_console > 7.8)
+		{
+			if (sum_kost_console < number_sum_kost)
+			{
+				cout << "Ви вийграли ставку!" << endl;
+				cout << endl;
+				int stavka;
+				stavka = vibor_stavka * 2;
+				cout << "Ваша ставка збiльшилася в двоє, ваша ставка становить = " << stavka << endl;
+				cout << endl;
+				cout << "-------------------------------------------\n" << endl;
+			}
+		}
+	}
+
+	//Якщо сума яку загадав користувач більше 7 та кубики випали більше 7, тоді виводе текст що виграв
+	if (number_sum_kost > 7.8)
+	{
+		if (sum_kost_console > number_sum_kost)
 		{
 			cout << "Ви вийграли ставку!" << endl;
 			cout << endl;
